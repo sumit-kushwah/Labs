@@ -1,0 +1,44 @@
+what is masking ?
+ans : Masking involves setting some of the pixel values in an image to zero,
+      or some other "background" value.
+      -Masks or filters can also be used for edge detection in an image and to
+       increase sharpness of an image
+what are edges?
+ans : We can also say that sudden changes of discontinuities in an image are called
+      as edges. Significant transitions in an image are called as edges  
+
+masking/filtering  can be used for blurring and edge detection in image 
+-blurring: we simple blur image.
+-edge detection: detect edges
+
+
+NOTE:::All the masks that are used for edge detection are also known as derivative masks.
+       Because as we have stated many times before in this series of tutorials that image 
+       is also a signal so changes in a signal can only be calculated using differentiation. 
+       So that’s why these operators are also called as derivative operators or derivative masks
+
+//*********
+All the derivative masks should have the following properties:
+
+-Opposite sign should be present in the mask.
+-Sum of mask should be equal to zero.
+-More weight means more edge detection.
+
+mask operations:
+-sobel: calculates edges in both horizontal and vertical direction.
+-prewitt: Prewitt operator is used for detecting edges horizontally and vertically.
+--difference b/w sobel and prewitt :The major difference is that in sobel operator the coefficients 
+    of masks are not fixed and they can be adjusted according to our requirement unless they do not
+    violate any property of derivative masks.
+-laplacian: second order derivative mask
+            -unlike other operators Laplacian didn’t take out edges in any particular
+             direction but it take out edges in following classification.
+             --Inward edges(-ve laplacian)(center element should be positive)
+              0 -1 0 
+             -1 4 -1
+              0 -1 0
+             --outward edges(+ve laplacian)(center element should be -ve)
+             0 1  0
+             1 -4 1
+             0 1  0
+             
