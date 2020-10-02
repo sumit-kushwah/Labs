@@ -25,25 +25,14 @@ void about()
 {
     cout << endl;
     cout << "\t"
-         << "SJF NON PREEMPTIVE CPU SCHEDULING SIMULATION" << endl;
-    cout << "\t"
-         << "AUTHOR: SUMIT KUSHWAH" << endl;
+         << "SJF NON PREEMPTIVE CPU SCHEDULING ALGORITHM SIMULATION" << endl;
     cout << endl;
 }
 
 void PrintProcessData(Process process)
 {
-    cout << process.id
-         << "\t"
-         << process.arrival_time
-         << "\t"
-         << process.start_time
-         << "\t"
-         << process.burst_time
-         << "\t"
-         << process.finish_time
-         << "\t"
-         << process.wait_time << endl;
+    cout << process.id << "\t" << process.arrival_time << "\t" << process.start_time << "\t" 
+    << process.burst_time << "\t" << process.finish_time << "\t" << process.wait_time << endl;
 }
 
 int main()
@@ -59,10 +48,9 @@ int main()
 
     for (int i = 0; i < pcount; i++)
     {
-        int id;
-        int burst_time;
-        int arrival_time;
-        cin >> id >> burst_time >> arrival_time;
+        int id = i + 1;
+        int burst_time = rand() % 20;
+        int arrival_time = rand() % 15;
         processes[i].id = id;
         processes[i].arrival_time = arrival_time;
         processes[i].burst_time = burst_time;
@@ -70,17 +58,8 @@ int main()
     sort(processes, processes + pcount, compare);
 
     cout << endl;
-    cout << "ID"
-         << "\t"
-         << "ARRIVAL"
-         << "\t"
-         << "START"
-         << "\t"
-         << "BURST"
-         << "\t"
-         << "FINISH"
-         << "\t"
-         << "WAIT" << endl;
+    cout << "ID" << "\t" << "ARRIVAL" << "\t" << "START" << "\t"
+         << "BURST" << "\t" << "FINISH" << "\t" << "WAIT" << endl;
 
     processes[0].start_time = processes[0].arrival_time;
     processes[0].finish_time = processes[0].start_time + processes[0].burst_time;

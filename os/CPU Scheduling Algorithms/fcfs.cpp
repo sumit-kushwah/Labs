@@ -19,10 +19,7 @@ bool compare(Process x, Process y)
 void about()
 {
     cout << endl;
-    cout << "\t"
-         << "FCFS CPU SCHEDULING SIMULATION" << endl;
-    cout << "\t"
-         << "AUTHOR: SUMIT KUSHWAH" << endl;
+    cout << "\t" << "FCFS CPU SCHEDULING ALGORITHM SIMULATION" << endl;
     cout << endl;
 }
 
@@ -46,8 +43,8 @@ int main()
     for (int i = 0; i < pcount; i++)
     {
         int id = i + 1;
-        int burst_time = rand() % 16;
-        int arrival_time = rand() % 10;
+        int burst_time = rand() % 20;
+        int arrival_time = rand() % 15;
         processes[i].id = id;
         processes[i].arrival_time = arrival_time;
         processes[i].burst_time = burst_time;
