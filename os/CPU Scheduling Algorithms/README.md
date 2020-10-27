@@ -1,3 +1,4 @@
+## CPU Scheduling Algorithms
 ### First Come First Serve (FCFS)
 FCFS is an operating system scheduling algorithm that automatically executes queued requests and processes in order of their arrival. It is the easiest and simplest CPU scheduling algorithm. In this type of algorithm, processes which requests the CPU first get the CPU allocation first.
 ### Shortest Job First (SJF)
