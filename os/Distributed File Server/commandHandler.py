@@ -1,53 +1,85 @@
-import os
+from functions import *
 
-# return appropiate response
-def handle(command, meta = None):
-    if command == 'fl':
-        if (meta):  
-            return str(getfileLength(meta)) + " bytes"
+def clienthandler(args, client):
+    maincommand = args[0]
+
+    if maincommand == "!ls":
+        print(getFilesList(client.dir))
+        return
+    elif maincommand == "ls":
+        client.client.sendall(bytes(maincommand, 'utf-8'))
+        bs = client.client.recv(12000)
+        print(bs.decode())
+        return
+    elif maincommand == "!fl":
+        try: 
+            res = getfileLength(client.dir, args[1])
+            if (res == "FILE_NOT_FOUND"):
+                print("No such file")
+            else:
+                print(str(res) + " bytes")
+        except IndexError:
+            print("too few arguments")
+        return
+    elif maincommand == "fl":
+        try: 
+            client.client.sendall(bytes(args[0] + " " + args[1], 'utf-8'))
+            bs = client.client.recv(12000)
+            print(bs.decode())
+        except IndexError:
+            print("too few arguments")
+        return
+
+    elif maincommand == "get":
+        try: 
+            client.client.sendall(bytes(args[0] + " " + args[1], 'utf-8'))
+            filereciever(client.dir, client.client)
+        except IndexError:
+            print("too few arguments")
+        return
+    
+    elif maincommand == "send":
+        try: 
+            try:
+                filesize = os.path.getsize(client.dir + args[1])
+                client.client.send(bytes(args[0] + " " + args[1], 'utf-8'))
+                data = client.client.recv(1024).decode()
+                filesender(client.dir, args[1], client.client)
+            except FileNotFoundError:
+                print("No such file")
+        except IndexError:
+            print("too few arguments")
+        return
+    
+    else:
+        print("Invalid command")
+    
+
+def serverHandler(args, csocket):  
+    maincommand = args[0]
+
+    if maincommand == "ls":
+        csocket.sendall(bytes(getFilesList('./serverDir/'), 'utf-8'))
+        return
+    elif maincommand == "fl":
+        res = getfileLength('./serverDir/', args[1])
+        if (res == "FILE_NOT_FOUND"):
+            csocket.sendall(bytes("No Such File", 'utf-8'))
         else:
-            return "INVALID_USAGE_OF_COMMAND"
+            csocket.sendall(bytes(str(res) + " bytes", 'utf-8'))
+        return
 
-    elif command == 'ls':
-        return getFilesList();
-    else:
-        return "INVALID_COMMAND"
+    elif maincommand == "get":
+        filesender('./serverDir/', args[1], csocket)
+        return
+    
+    elif maincommand == "send":
+        csocket.send(bytes("ok", 'utf-8'))
+        filereciever('./serverDir/', csocket)
+        return
 
-
-
-def getfileLength(filename):
-    try:
-        return os.stat("./serverDir/" + filename).st_size
-    except IOError:
-        return "FILE_NOT_FOUND"
-
-def getFile(filename, csocket):
-    if (filename):  
-        try:
-            f = open("./serverDir/" + filename, 'r')
-            file = f.read()
-            with open(filename, "rb") as f:
-            # read the bytes from the file
-                while True:
-                    bytes_read = f.read(4096)
-                    if not bytes_read:
-                        print("File transfered successfully!!")
-                        break
-                    # we use sendall to assure transimission in 
-                    # busy networks
-                    csocket.sendall(bytes_read)
-                
-        except IOError:
-            return "FILE_NOT_FOUND"
-    else:
-        return "INVALID_USAGE_OF_COMMAND"
 
     
 
-def getFilesList():
-    files = os.listdir("./serverDir");
-    filetext = "\n"
-    for file in files:
-        filetext += file + "\n"
-    return filetext
+
 

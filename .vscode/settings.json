@@ -1,0 +1,3 @@
+{
+    "python.autoComplete.extraPaths": ["./os/Distributed File Server"],
+}

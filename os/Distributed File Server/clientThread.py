@@ -1,7 +1,6 @@
 import socket
 import threading
-from commandHandler import *
-from filesender import *
+from commandHandler import serverHandler
 
 class ClientThread(threading.Thread):
     def __init__(self, clientAddress, clientsocket):
@@ -15,20 +14,17 @@ class ClientThread(threading.Thread):
         self.csocket.send(bytes("Successfully connected with server.",'utf-8'))
         while True:
             data = self.csocket.recv(1024)
-            msg = data.decode().split()
-            maincommand = msg[0]
-            metadata = None
-            try :
-                metadata = msg[1]
-            except IndexError:
-                pass
-
-            if maincommand =='bye':
-              break
-            elif maincommand == 'get':
-                filesender('./serverDir/' + metadata, self.csocket)
-            else:
-                self.csocket.send(bytes(handle(maincommand, metadata),'utf-8'))
+            args = data.decode().split()
+            try:
+                maincommand = args[0]
+                if (maincommand == "quit"):
+                    self.csocket.close()
+                    break
+                else:
+                    serverHandler(args, self.csocket)   
+            except:
+                self.csocket.close()
+                break
             
         print ("Client at ", self.clientAddress , " disconnected...")
         

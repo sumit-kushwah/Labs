@@ -13,3 +13,5 @@ while True:
     clientsock, clientAddress = server.accept()
     newthread = ClientThread(clientAddress, clientsock)
     newthread.start()
+    
+
