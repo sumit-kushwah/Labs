@@ -5,9 +5,10 @@
 - ####  CPU Scheduling Algorithms
   - [X] FCFS
   - [X] SJF Non-Preemptive
-  - [ ] SJF Preemptive
-  - [ ] Round Robin
-  - [ ] Priority
+  - [X] SJF Preemptive
+  - [X] Round Robin
+  - [X] Priority Preemptive
+  - [X] Prioity Non-Preemptive
  
 - #### Page Replacment Algorithms
   - [X] FIFO
