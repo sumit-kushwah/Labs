@@ -27,7 +27,7 @@ int main() {
     cin >> n;
     int pages[n];
     for (int i = 0; i < n; ++i) {
-        pages[i] = rand() % 5;
+        pages[i] = rand() % 9;
     }
 
     cout << "\nRandom generated page reference array: \n";
