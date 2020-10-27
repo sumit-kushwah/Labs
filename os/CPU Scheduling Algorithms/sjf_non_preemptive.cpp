@@ -23,10 +23,9 @@ bool compare(Process x, Process y)
 
 void about()
 {
-    cout << endl;
-    cout << "\t"
-         << "SJF NON PREEMPTIVE CPU SCHEDULING ALGORITHM SIMULATION" << endl;
-    cout << endl;
+    cout << "******************************************************************" << endl;
+    cout << "\t" << "SJF NON PREEMPTIVE CPU SCHEDULING ALGORITHM SIMULATION" << endl;
+    cout << "******************************************************************" << endl;
 }
 
 void PrintProcessData(Process process)
@@ -37,6 +36,7 @@ void PrintProcessData(Process process)
 
 int main()
 {
+    srand(time(0));
     about();
 
     int pcount;
