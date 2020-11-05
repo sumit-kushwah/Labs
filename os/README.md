@@ -15,7 +15,7 @@
   - [X] LRU
  
 - [X] Implement a distributed file server using sockets on Linux. The server creates a thread per client. In the first message, a client sends a file name to the server and asks for the length of the file. The client caches the files locally. Use any cache coherence technique. A file is transferred to the client block by block.
-- [ ] Implement concurrent echo client-server application. (Write a server (TCP) C Program that opens a listening socket and waits to serve client. Write a client (TCP) C++ Program that connects with the server program knowing IP address and port number. Get the input string from console on client and send it to server, server echoes back that string to client.)
+- [X] Implement concurrent echo client-server application. (Write a server (TCP) C Program that opens a listening socket and waits to serve client. Write a client (TCP) C++ Program that connects with the server program knowing IP address and port number. Get the input string from console on client and send it to server, server echoes back that string to client.)
 - [ ] Implement **Cristian’s algorithm**.
 - [ ] Simulate the functioning of **Lamport’s Logical Clock** in ‘C++’.
 - [ ] Implementation and **Performance Evaluation of any Distributed Mutual Exclusion algorithm**.
