@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    string s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    string key = "NRXKJMLDWQBEIVPYSAFCZUHGTO"; // key is 26 character long
     string plaintext;
     cout << "Enter plaintext(all character should be lowercase): ";
     cin >> plaintext;
@@ -13,8 +13,7 @@ int main() {
     for (int i = 0; i < plaintext.length(); i++) {
         int ss = plaintext[i];
         ss -= 97;
-        ss = (ss + 3) % 26;
-        ciphertext.push_back(s[ss]);
+        ciphertext.push_back(key[ss]);
     }
     cout << "Ciphertext: ";
     cout << ciphertext << endl;
