@@ -3,7 +3,7 @@
 ### Experiments
 
 - ####  Perform encryption and decryption using following algorithm (Cipher)
-  - [ ] substitution cipher (ceasar cipher, mono-alphabetic cipher) 
+  - [X] substitution cipher (ceasar cipher, mono-alphabetic cipher) 
   - [ ] hill cipher
   - [ ] vigenere cipher
   
