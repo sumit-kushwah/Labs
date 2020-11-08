@@ -4,7 +4,7 @@
 
 - ####  Perform encryption and decryption on plaintext using following algorithm (Cipher)
   - [X] substitution cipher (ceasar cipher, mono-alphabetic cipher) 
-  - [ ] polyalphabetic substitution cipher (vigenere cipher, hill cipher)
+  - [X] polyalphabetic substitution cipher (vigenere cipher, hill cipher)
   
 - [ ] Demonstrate working of Playfair Cipher.
 - [ ] Write programs to demonstrate Data Encryption Standard (DES) and Triple Data Encryption Standard (3DES)
