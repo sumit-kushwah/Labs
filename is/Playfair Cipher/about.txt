@@ -1,0 +1,11 @@
+The key of playfair cipher can be any 25 char sequence,
+missing letter in grid is replaced with alternate letter
+i.e j with i
+
+The Playfair cipher or Playfair square or Wheatstone-Playfair cipher is a manual symmetric encryption technique and was the first literal digram substitution cipher. The scheme was invented in 1854 by Charles Wheatstone, but bears the name of Lord Playfair for promoting its use.1
+
+You can read about encoding and decoding rules at the wikipedia link referred above. Below you can find the calculator for encryption and decryption to play with. It uses most common rules for Playfair cipher:
+
+1.'J' is replaced with 'I' to fit 5x5 square
+2.'X' is used as substitution in case you need to fill second letter in the digram, or split two identical letters
+3.Playfair square is filled row-by-row, starting with the keyword.
