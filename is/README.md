@@ -6,7 +6,7 @@
   - [X] substitution cipher (ceasar cipher, mono-alphabetic cipher) 
   - [X] polyalphabetic substitution cipher (vigenere cipher, hill cipher)
   
-- [ ] Demonstrate working of Playfair Cipher.
+- [X] Demonstrate working of Playfair Cipher.
 - [ ] Write programs to demonstrate Data Encryption Standard (DES) and Triple Data Encryption Standard (3DES)
 - [ ] Implement RSA cryptosystem.
 - [ ] Write program to demonstrate Deffie Hellman key exchange algorithm.
