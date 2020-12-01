@@ -39,7 +39,7 @@ def minor(A,i,j):    # Return matrix A with the ith row and jth column deleted
 keymatrix = [[3, 3], [2, 5]]
 plaintext = ""
 
-ciphertext = "kgimjkkajuvj"
+ciphertext = input("ENTER CIPHERTEXT: ")
 i = 0
 while i < (len(ciphertext)):
     temp = []

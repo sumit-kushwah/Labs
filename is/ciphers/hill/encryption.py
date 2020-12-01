@@ -21,7 +21,7 @@ import numpy as np
 keymatrix = [[3, 3], [2, 5]]
 ciphertext = ""
 
-plaintext = "sumitkushwah" # please take string of even length otherwise modify code
+plaintext = input("please enter string of even length:")
 i = 0
 while i < (len(plaintext)):
     temp = []
