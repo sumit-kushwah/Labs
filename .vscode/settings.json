@@ -1,3 +1,8 @@
 {
-    "python.autoComplete.extraPaths": ["./os/Distributed File Server"],
+    "python.autoComplete.extraPaths": [
+        "./os/Distributed File Server"
+    ],
+    "python.analysis.extraPaths": [
+        "./os/Distributed File Server"
+    ],
 }
