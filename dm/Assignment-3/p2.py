@@ -1,5 +1,4 @@
-from os import write
-import random, string, time, csv
+import time, csv
 begin = time.time()
 csvfile = open('output.csv', 'w')
 fieldnames = ['no_of_files', 'time_taken_sec']
